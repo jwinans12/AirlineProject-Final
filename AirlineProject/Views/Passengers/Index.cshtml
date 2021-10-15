@@ -1,0 +1,40 @@
+﻿@model IEnumerable<Airlinemaker.Data.Passenger>
+
+@{
+    ViewData["Title"] = "Passengers";
+}
+
+<div class="text-center">
+    <h2>
+        View Flights
+    </h2>
+    <a class="navbar-brand" asp-area="" asp-controller="Passengers" asp-action="Create">Add a Passenger</a>
+    <table class="table table-bordered table-striped">
+        <thead>
+            <tr>
+                <td>@Html.DisplayNameFor(model => model.Name)</td>
+                <td>@Html.DisplayNameFor(model => model.Job)</td>
+                <td>@Html.DisplayNameFor(model => model.Email)</td>
+                <td>@Html.DisplayNameFor(model => model.Age)</td>
+                <td>@Html.DisplayNameFor(model => model.FlightNumber)</td>
+                <td></td>
+                <td></td>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var passenger in Model)
+            {
+            <tr>
+                <td>@Html.DisplayFor(modelItem => passenger.Name)</td>
+                <td>@Html.DisplayFor(modelItem => passenger.Job)</td>
+                <td>@Html.DisplayFor(modelItem => passenger.Email)</td>
+                <td>@Html.DisplayFor(modelItem => passenger.Age)</td>
+                <td>@Html.DisplayFor(modelItem => passenger.FlightNumber)</td>
+
+                <td>@Html.ActionLink("Details", "Details", new { id = passenger.Id })</td>
+                <td>@Html.ActionLink("Delete", "Delete", new { id = passenger.Id })</td>
+            </tr>
+            }
+        </tbody>
+    </table>
+</div>

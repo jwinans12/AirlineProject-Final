@@ -1,0 +1,49 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+
+@model IEnumerable<Airlinemaker.Data.Flight>
+
+@{ 
+    ViewData["Title"] = "Flights";
+}
+
+<div class="text-center">
+    <h2>
+        View Flights
+    </h2>
+    <a class="navbar-brand" asp-area="" asp-controller="Flights" asp-action="Create">Add a Flight</a>
+    <table class="table table-bordered table-striped">
+        <thead>
+            <tr>
+                <td>@Html.DisplayNameFor(model => model.DepartLoc)</td>
+                <td>@Html.DisplayNameFor(model => model.ArriveLoc)</td>
+                <td>@Html.DisplayNameFor(model => model.DepartDate)</td>
+                <td>@Html.DisplayNameFor(model => model.ArriveDate)</td>
+                <td>@Html.DisplayNameFor(model => model.DepartTime)</td>
+                <td>@Html.DisplayNameFor(model => model.ArriveTime)</td>
+                <td>@Html.DisplayNameFor(model => model.PassengerLimit)</td>
+                <td></td>
+                <td></td>
+                
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var flight in Model)
+            {
+            <tr>
+                <td>@Html.DisplayFor(modelItem => flight.DepartLoc)</td>
+                <td>@Html.DisplayFor(modelItem => flight.ArriveLoc)</td>
+                <td>@Html.DisplayFor(modelItem => flight.DepartDate)</td>
+                <td>@Html.DisplayFor(modelItem => flight.ArriveDate)</td>
+                <td>@Html.DisplayFor(modelItem => flight.DepartTime)</td>
+                <td>@Html.DisplayFor(modelItem => flight.ArriveTime)</td>
+                <td>@Html.DisplayFor(modelItem => flight.PassengerLimit)</td>
+                <td>@Html.ActionLink("Details", "Details", new { id = flight.Id })</td>
+                <td>@Html.ActionLink("Delete", "Delete", new { id = flight.Id })</td>
+                <td>@Html.ActionLink("CurrentPassengers", "CurrentPassengers", new { id = flight.Id })</td>
+            </tr>
+            }
+        </tbody>
+    </table>
+</div>
